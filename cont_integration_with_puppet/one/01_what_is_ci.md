@@ -16,9 +16,22 @@
 
 !SLIDE bullets incremental transition=fade
 
-1. continuous integration != continuous deployment
-	1. ...why would you ever want a robot to *continuously deploy* the **keys to your kingdom**?!
-2. continuous integration is *in addition* to human oversight & due diligence 
-	1. ...**keys to the kingdom!**
-3. continuous integration *aids the QA pipeline*
-	1. ...in no way does it **replace** human QA oversight & due diligence
+* ####continuous integration != continuous deployment
+
+* ... cue the fire bait about what is CI and what is CD
+
+* ... no really... 
+
+* ... why would you ever want a robot to *continuously deploy* the **keys to your kingdom**?!
+
+!SLIDE bullets incremental transition=fade
+
+* ####continuous integration is *in addition* to human oversight & due diligence 
+
+* ... again, this *is not* continuous deployment
+
+!SLIDE bullets incremental transition=fade
+
+* ####continuous integration *aids the QA pipeline*
+	 
+* ... in no way does it **replace** human QA oversight & due diligence
