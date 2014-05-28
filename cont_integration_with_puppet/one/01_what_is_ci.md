@@ -1,5 +1,5 @@
 !SLIDE 
-# What is Continuous Integration? #
+## What is Continuous Integration? 
 ![this](cont_integration_dare.jpg) 
 
 !SLIDE bullets incremental transition=fade
@@ -12,7 +12,7 @@
 
 !SLIDE transition=fade
 
-## CI is **streamlined promotion** of the code through the *dev - testing - production* lifecycle  
+## CI is **streamlined promotion** of the code through the *dev - test - production* lifecycle  
 
 !SLIDE bullets incremental transition=fade
 
