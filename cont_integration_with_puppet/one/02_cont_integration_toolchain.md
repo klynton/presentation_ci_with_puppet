@@ -36,9 +36,37 @@
 
 # Git Hooks #
 
-!SLIDE bullets incremental transition=fade
+SLIDE bullets incremental transition=fade
 
-# RESTful Interactions #
+## what are hooks
+
+SLIDE transition=fade
+
+# Quick CI w/ puppet-lint #
+
+SLIDE transition=fade
+
+# Unit/System/Accceptance Testing #
+
+SLIDE bullets incremental transition=fade
+
+## Unit Testing 
+
+SLIDE bullets incremental transition=fade
+
+## System Testing
+
+SLIDE bullets incremental transition=fade
+
+## Acceptance Testing
+
+SLIDE transition=fade
+
+# Full Circle: Travis CI #
+
+SLIDE transition=fade
+
+# RESTful Deploys #
 
 !SLIDE bullets incremental transition=fade
 
