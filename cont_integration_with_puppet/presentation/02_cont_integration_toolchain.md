@@ -70,12 +70,91 @@ end
 * ... and deploys all the modules in that Puppetfile to the specified Puppet environment via the topic branch
 * simple. 
 
-!SLIDE transition=fade
+!SLIDE bullets incremental  transition=fade
 
-# Quick CI w/ puppet-lint #
+# Where do I start? #
 
-SLIDE transition=fade
+* The ***Control Repo***
 
+!SLIDE bullets incremental
+
+## this **monolithic repo** contains: 
+
+* ***Puppetfile***
+* ***Hieradata***
+* ...sometimes the ***hiera.yaml*** 
+
+!SLIDE bullets incremental 
+
+## where do the files live on the Puppet master? 
+
+* For PE: **/etc/puppetlabs/puppet**
+* For FOSS: **/etc/puppet/**
+
+!SLIDE bullets incremental 
+
+<pre class="sh_Bash">
+$ pwd
+/etc/puppetlabs/puppet/
+$ git branch
+  development
+</pre>
+
+* ***DO NOT*** ```git add .``` in this dir!
+
+!SLIDE
+
+# The ***Puppetfile*** #
+
+!SLIDE bullets incremental
+
+* For each version of the Puppetfile on a given topic branch in the control repo:
+* Contains module references to URI's with specific (optional) refs
+
+!SLIDE code
+
+## On Branch Development:
+
+<pre class="sh_Shell">
+$ cat Puppetfile
+
+mod "my_module",
+  :git => "git://github.com/my_module.git",
+  :ref => '2.0.1'
+</pre>
+
+!SLIDE code transition=fade
+
+## On Branch Staging:
+
+<pre class="sh_Shell">
+$ cat Puppetfile
+
+mod "my_module",
+  :git => "git://github.com/my_module.git",
+  :ref => '1.5.0'
+</pre>
+
+!SLIDE code transition=fade
+
+## On Branch Production:
+
+<pre class="sh_Shell">
+$ cat Puppetfile
+
+mod "my_module",
+  :git => "git://github.com/my_module.git",
+  :ref => '1.0.0'
+</pre>
+
+!SLIDE
+ 
+# Deploy Branches to Puppet Environments #
+
+!SLIDE code
+
+ <pre class="sh_Bash">
+</pre>
 # Unit/System/Accceptance Testing #
 
 SLIDE bullets incremental transition=fade
@@ -92,16 +171,12 @@ SLIDE bullets incremental transition=fade
 
 SLIDE transition=fade
 
-# Full Circle: Travis CI #
 
 SLIDE transition=fade
 
-# RESTful Deploys #
 
 !SLIDE bullets incremental transition=fade
 
-# r10k #
 
 !SLIDE bullets incremental transition=fade
 
-# A Complete Picture #
