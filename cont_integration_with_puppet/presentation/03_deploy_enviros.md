@@ -2,20 +2,19 @@
 
 # Deploy Branches to Puppet Environments #
 
-!SLIDE transition=fade smbullets incremental
+!SLIDE transition=fade bullets incremental
 
 ## *A quick review*
 
 - We have a **Pupeptfile** in a **control repo** on **git**
 - For **each topic branch** we have **different modules** declared in the **Puppetfile**
 - We have a **RESTful** webhook on the Puppet master, and our **git repo** is configured to **POST** on ***'git push'***  
-- ... now the fun part
 
 !SLIDE transition=fade smbullets incremental
 
 # deploy() #
 
-!SLIDE smaller 
+!SLIDE small 
 ## First, the ***JSON sent in the POST*** to our Puppet master ***is parsed for the branch ref***:
 	@@@ Ruby
 	...
@@ -27,6 +26,7 @@
 		deploy(branch)
 	end
 
+!SLIDE small
 ##  Second, ***an RPC mCollective agent runs r10k*** which pulls down the updated branch from the repo:
 	@@@ Ruby
 	...
@@ -164,30 +164,3 @@
 * Git push sparks off webhook to run r10k
 * r10k pulls down the pushed branch to the Puppet master
 
-!SLIDE bullets incremental 
-
-
-# Unit/System/Accceptance Testing #
-
- SLIDE bullets incremental transition=fade
-
- ## Unit Testing
-
- SLIDE bullets incremental transition=fade
-
- ## System Testing
-
- SLIDE bullets incremental transition=fade
-
- ## Acceptance Testing
-
- SLIDE transition=fade
-
-
- SLIDE transition=fade
-
-
- !SLIDE bullets incremental transition=fade
-
-
- !SLIDE bullets incremental transition=fade
