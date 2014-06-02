@@ -40,9 +40,43 @@
    		{:status => :success, :message => "r10k started"}.to_json
 	end
 
-!SLIDE 
- <pre class="sh_Bash">
- </pre>
+!SLIDE
+
+# Wait, what?! #
+ 
+!SLIDE
+
+# So... #
+
+!SLIDE small bullets incremental 
+
+## On my dev machine, ***I added some modules to the Puppetfile for branch development*** 
+* **'git push'** 
+* The ***git repo*** received the push and sent a ***POST*** to our Puppet master URI
+* On receiving the ***POST*** our webhook running on the Puppet master ***parsed the JSON sent with the POST*** and pulled down the branch with r10k.
+* *Automagically*
+
+!SLIDE bullets incremental 
+ 
+## This is a *somewhat* typical CI setup for Puppet code
+
+* But it's **missing some critical parts**
+* ***No QA*** checking of the code 
+* You could ***easily push bad code to branch*** **'production'** and break your kingdom
+
+!SLIDE
+
+# ***Basic*** *code checks using local* **git hooks** #
+
+!SLIDE bullets incremental
+
+## Run ```$ puppet parser validate``` on every **'git commit'**
+
+* It should ***only run on*** '.pp' files
+* It should ***cancel commit*** for exit code < 0 
+
+!SLIDE
+
  # Unit/System/Accceptance Testing #
 
  SLIDE bullets incremental transition=fade
