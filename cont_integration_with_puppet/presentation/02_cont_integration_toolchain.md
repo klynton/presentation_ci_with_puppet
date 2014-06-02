@@ -1,4 +1,4 @@
-ESLIDE transition=fade
+!SLIDE transition=fade
 
 ## How we do things at Puppet Labs
 

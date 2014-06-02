@@ -69,7 +69,7 @@
 # ***Basic*** *code checks using local* **git hooks** #
 
 !SLIDE bullets incremental
-
+# Goal:
 ## Run ```$ puppet parser validate``` on every **'git commit'**
 
 * It should ***only run on*** '.pp' files
@@ -77,7 +77,7 @@
 
 !SLIDE small
 # ```$confdir/.git/hooks/pre-commit```
-## Let's run the parser to validate first:
+## ***Let's run the parser to validate first***:
 
 	@@@ Ruby
 	for file in `git diff --name-only --cached | grep -E '\.(pp)'`
@@ -98,19 +98,17 @@
 
 !SLIDE small
 # ```$confdir/.git/hooks/pre-commit```
-## Let's run the code through puppet lint for syntax while we're at it:
+## ***...and then run it through puppet lint for syntax***:
 	@@@ Ruby
 	for file in `git diff --name-only --cached | grep -E '\.(pp)'`
 	do
-		# Only check new/modified files that end in *.pp extension
-	if [[ -f $file && $file == *.pp ]]
+	if [[ -f $file && $file == *.pp ]]# Only check new/modified files
 	then
 		puppet-lint \
 		--no-80chars-check \
 		--no-autoloader_layout-check \
 		--no-nested_classes_or_defines-check \
 		--with-filename $file
-		# Set us up to bail if we receive any syntax errors
 		if [[ $? -ne 0 ]]
 		then
 			syntax_is_bad=1
@@ -122,7 +120,7 @@
 	echo ""
 !SLIDE small
 # ```$confdir/.git/hooks/pre-commit```
-## Let's get super fancy and make sure our ERB templates are going to be rad:
+## ***... maybe get super fancy and ensure the ERB templates are going to be rad***:
 	@@@ Ruby
 	for file in `git diff --name-only --cached | grep -E '\.(erb)'`
 	do
@@ -154,13 +152,12 @@
 
 !SLIDE	
 
-# So far, this has been ***simple*** #
+# So far, this has been ***"simple"*** #
 
 !SLIDE bullets incremental 
 
-## What we've seen:
-* Basic CI with puppet code
-* Git commit checks code locally for basic syntax, parsability and template structure
-* Git push sparks off webhook to run r10k
-* r10k pulls down the pushed branch to the Puppet master
+# What we've seen:
+* **Git hook** ***checks code locally*** for *basic syntax*, *parsability* and *template structure*
+* **Git push** sparks off **webhook** to ***run r10k***
+* **r10k** ***pulls down the pushed branch*** to the *Puppet master*
 

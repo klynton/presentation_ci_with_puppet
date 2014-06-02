@@ -44,7 +44,6 @@ class carFactory (
 
 </pre>
 
-!SLIDE bullets incremental transition=fade
 
 
 
