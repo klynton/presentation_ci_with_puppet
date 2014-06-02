@@ -1,4 +1,4 @@
-!SLIDE transition=fade
+ESLIDE transition=fade
 
 ## How we do things at Puppet Labs
 
@@ -41,13 +41,15 @@ Also mention:
 
 # RESTful Webhooks #
 
-!SLIDE bullets incremental
+!SLIDE small bullets incremental
 
-## Webhooks ***allow external services to be notified when certain events happen*** on a repo. When the specified events happen a ***POST request is sent to each of the URLs you provide***.
+## Webhooks ***allow external services to be notified when certain events happen*** on a repo. 
+
+* When the specified events happen a ***POST request is sent to each of the URLs you provide***.
 
 * ... in our case, ***the URL points to a Sinatra server running on our Puppet master***
 
-!SLIDE transition=fade
+!SLIDE small transition=fade
 
 ## On the puppet master: 
 
@@ -74,7 +76,7 @@ end
 !SLIDE bullets incremental transition=fade
 
 * ***maps git topic branches*** on a remote which contains a Puppetfile ***to local puppet environmenets*** 
-* ... and deploys all the modules in that Puppetfile to the specified Puppet environment via the topic branch
+* ... and ***deploys all the modules in that Puppetfile*** to the ***specified Puppet environment*** via the topic branch
 * simple. 
 
 !SLIDE bullets incremental  transition=fade
@@ -115,10 +117,11 @@ $ git branch
 
 !SLIDE bullets incremental
 
-* For each version of the Puppetfile on a given topic branch in the control repo:
-* Contains module references to URI's with specific (optional) refs
+## ***For each version of the Puppetfile*** on a given topic branch in the control repo:
+* There are **module references to** *git* or *forge* URIs with (optional) refs 
 
-!SLIDE  
+
+!SLIDE commandline 
 
 ## On Branch Development:
 
@@ -130,7 +133,7 @@ mod "my_module",
   :ref => '2.0.1'
 </pre>
 
-!SLIDE transition=fade
+!SLIDE transition=fade commandline
 
 ## On Branch Staging:
 
@@ -142,7 +145,7 @@ mod "my_module",
   :ref => '1.5.0'
 </pre>
 
-!SLIDE transition=fade
+!SLIDE transition=fade commandline
 
 ## On Branch Production:
 
