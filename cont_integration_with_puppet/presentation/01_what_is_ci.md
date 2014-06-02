@@ -36,6 +36,13 @@ CI ***with automated*** release gate to production
 * Automate things so it's **like a factory**.
 * Then use **factory patterns** to ***solve your problems***.
 
+!SLIDE transition=fade bullets incremental
+
+## **Factory Constraints** = **Code Deployment Constraints**: 
+* Deliver ***fast***, ***predictable***, and ***uninterupted*** code pipelines 
+* which ***minimize the time to production*** 
+* by ***eliminating bottlenecks*** from the (agile) workflow. 
+
 !SLIDE code transition=fade
 
 <pre class="sh_Puppet">
