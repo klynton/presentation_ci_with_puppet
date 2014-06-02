@@ -32,9 +32,9 @@ Also mention:
 
 # Git Hooks #
 
-* Run at the local git repository (i.e., on your laptop)
-* Scripts that run when particular actions occur (like a *Puppet lint check*)
-* Actions like 'commit' or 'push'
+* Run at the ***local git repository*** (i.e., on your laptop)
+* *Scripts* that ***run when a particular actions occurs*** on the repo 
+* Actions like ```'$ git commit'``` or ```'$ git push'```
 * examples in ```your_repo/.git/hooks```
 
 !SLIDE bullets incremental transition=fade

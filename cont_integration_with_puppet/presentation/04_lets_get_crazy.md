@@ -60,6 +60,7 @@
 * ***System Testing***
 * ***Acceptance Testing***
 * ***Leveraging r10k for hiera data*** 
+* ...*and leveraging CI tools to deploy said data*
 * ***Multi Master Code Deployment***
 
 !SLIDE transition=fade bullets incremental
