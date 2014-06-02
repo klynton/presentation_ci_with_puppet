@@ -5,6 +5,8 @@
 
 ![this](cont_integration_dare.jpg) 
 
+(let's go over some terminology first)
+
 !SLIDE transition=fade
 
 ## Continuous Integration
@@ -22,6 +24,11 @@ CI ***with a human controlled*** realase gate to production.
 ## Continuous Deployment
 
 CI ***with automated*** release gate to production
+
+!SLIDE transition=fade
+
+# The Theory of Constraints: #
+## ***Any improvement*** made anywhere ***besides the bottleneck*** is an ***illusion***
 
 !SLIDE bullets incremental transition=fade
 
@@ -41,11 +48,5 @@ class carFactory (
 	include carFactory::qualityAssurance
 	...
 }
-
 </pre>
-
-!SLIDE transition=fade
-
-## ***Any improvement*** made anywhere ***besides the bottleneck*** is an ***illusion***
-
 
