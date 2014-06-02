@@ -75,9 +75,99 @@
 * It should ***only run on*** '.pp' files
 * It should ***cancel commit*** for exit code < 0 
 
-!SLIDE
+!SLIDE small
+# ```$confdir/.git/hooks/pre-commit```
+## Let's run the parser to validate first:
 
- # Unit/System/Accceptance Testing #
+	@@@ Ruby
+	for file in `git diff --name-only --cached | grep -E '\.(pp)'`
+	do
+	if [[ -f $file && $file == *.pp ]]
+	then
+        	puppet parser validate $file
+        	if [[ $? -ne 0 ]]
+        	then
+        		echo "ERROR: puppet parser failed at: $file"
+               		syntax_is_bad=1
+        	else
+           		echo "OK: $file looks valid"
+       		fi
+     	fi
+	done
+	echo ""
+
+!SLIDE small
+# ```$confdir/.git/hooks/pre-commit```
+## Let's run the code through puppet lint for syntax while we're at it:
+	@@@ Ruby
+	for file in `git diff --name-only --cached | grep -E '\.(pp)'`
+	do
+		# Only check new/modified files that end in *.pp extension
+	if [[ -f $file && $file == *.pp ]]
+	then
+		puppet-lint \
+		--no-80chars-check \
+		--no-autoloader_layout-check \
+		--no-nested_classes_or_defines-check \
+		--with-filename $file
+		# Set us up to bail if we receive any syntax errors
+		if [[ $? -ne 0 ]]
+		then
+			syntax_is_bad=1
+		else
+			echo "$file looks good"
+		fi
+	fi
+	done
+	echo ""
+!SLIDE small
+# ```$confdir/.git/hooks/pre-commit```
+## Let's get super fancy and make sure our ERB templates are going to be rad:
+	@@@ Ruby
+	for file in `git diff --name-only --cached | grep -E '\.(erb)'`
+	do
+	if [[ -f $file ]]
+	then
+		erb -P -x -T '-' $file | ruby -c
+		if [[ $? -ne 0 ]]
+		then
+			echo "ERROR: ruby template parser failed at: $file"
+			syntax_is_bad=1
+		else	
+			echo "OK: $file looks like a valid ruby template"
+		fi
+	fi
+	done
+	echo ""
+
+!SLIDE small
+# ... don't forget our exit code:
+	@@@ Ruby
+	if [[ $syntax_is_bad -eq 1 ]]
+	then
+		echo "FATAL: Syntax is bad. See above errors"
+		echo "Bailing"
+		exit 1
+	else
+		echo "Everything looks good."
+	fi
+
+!SLIDE	
+
+# So far, this has been ***simple*** #
+
+!SLIDE bullets incremental 
+
+## What we've seen:
+* Basic CI with puppet code
+* Git commit checks code locally for basic syntax, parsability and template structure
+* Git push sparks off webhook to run r10k
+* r10k pulls down the pushed branch to the Puppet master
+
+!SLIDE bullets incremental 
+
+
+# Unit/System/Accceptance Testing #
 
  SLIDE bullets incremental transition=fade
 
