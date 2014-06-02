@@ -25,9 +25,9 @@ CI ***with automated*** release gate to production
 
 !SLIDE bullets incremental transition=fade
 
-* The Goal: 
-* Automate things so it's like a factory.
-* Then use factory patterns to solve your problems.
+# The Goal: 
+* Automate things so it's **like a factory**.
+* Then use **factory patterns** to ***solve your problems***.
 
 !SLIDE code transition=fade
 
@@ -44,6 +44,8 @@ class carFactory (
 
 </pre>
 
+!SLIDE transition=fade
 
+## ***Any improvement*** made anywhere ***besides the bottleneck*** is an ***illusion***
 
 
