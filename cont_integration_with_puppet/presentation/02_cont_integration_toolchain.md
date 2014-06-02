@@ -32,13 +32,20 @@ Also mention:
 
 # Git Hooks #
 
-* Scripts that run when particular actions occur
-* (like 'commit' or 'push') 
+* Run at the local git repository (i.e., on your laptop)
+* Scripts that run when particular actions occur (like a *Puppet lint check*)
+* Actions like 'commit' or 'push'
 * examples in ```your_repo/.git/hooks```
 
 !SLIDE bullets incremental transition=fade
 
 # RESTful Webhooks #
+
+!SLIDE bullets incremental
+
+## Webhooks ***allow external services to be notified when certain events happen*** on a repo. When the specified events happen a ***POST request is sent to each of the URLs you provide***.
+
+* ... in our case, ***the URL points to a Sinatra server running on our Puppet master***
 
 !SLIDE transition=fade
 
@@ -111,11 +118,11 @@ $ git branch
 * For each version of the Puppetfile on a given topic branch in the control repo:
 * Contains module references to URI's with specific (optional) refs
 
-!SLIDE code
+!SLIDE  
 
 ## On Branch Development:
 
-<pre class="sh_Shell">
+<pre class="sh_Ruby">
 $ cat Puppetfile
 
 mod "my_module",
@@ -123,11 +130,11 @@ mod "my_module",
   :ref => '2.0.1'
 </pre>
 
-!SLIDE code transition=fade
+!SLIDE transition=fade
 
 ## On Branch Staging:
 
-<pre class="sh_Shell">
+<pre class="sh_Ruby">
 $ cat Puppetfile
 
 mod "my_module",
@@ -135,48 +142,15 @@ mod "my_module",
   :ref => '1.5.0'
 </pre>
 
-!SLIDE code transition=fade
+!SLIDE transition=fade
 
 ## On Branch Production:
 
-<pre class="sh_Shell">
+<pre class="sh_Ruby">
 $ cat Puppetfile
 
 mod "my_module",
   :git => "git://github.com/my_module.git",
   :ref => '1.0.0'
 </pre>
-
-!SLIDE
- 
-# Deploy Branches to Puppet Environments #
-
-!SLIDE code
-
- <pre class="sh_Bash">
-</pre>
-# Unit/System/Accceptance Testing #
-
-SLIDE bullets incremental transition=fade
-
-## Unit Testing 
-
-SLIDE bullets incremental transition=fade
-
-## System Testing
-
-SLIDE bullets incremental transition=fade
-
-## Acceptance Testing
-
-SLIDE transition=fade
-
-
-SLIDE transition=fade
-
-
-!SLIDE bullets incremental transition=fade
-
-
-!SLIDE bullets incremental transition=fade
 

@@ -9,7 +9,7 @@
 
 ## Continuous Integration
 
-**streamlined promotion** of the code through the *dev - test - production* lifecycle  
+***streamlined promotion*** of code through *dev - test - production* 
 
 !SLIDE transition=fade
 
