@@ -15,7 +15,7 @@
 
 !SLIDE transition=fade
 
-## Continuous Delievery
+## Continuous Delivery
 
 CI ***with a human controlled*** realase gate to production.
 
@@ -39,7 +39,7 @@ CI ***with automated*** release gate to production
 !SLIDE transition=fade bullets incremental
 
 ## **Factory Constraints** = **Code Deployment Constraints**: 
-* Deliver ***fast***, ***predictable***, and ***uninterupted*** code pipelines 
+* Deliver ***fast***, ***predictable***, and ***uninterrupted*** code pipelines 
 * which ***minimize the time to production*** 
 * by ***eliminating bottlenecks*** from the (agile) workflow. 
 
@@ -47,7 +47,7 @@ CI ***with automated*** release gate to production
 
 <pre class="sh_Puppet">
 class carFactory (
-	$chasis,
+	$chassis,
 	...
 )inherits carFactory::params{	
 	include carFactory::robots

@@ -10,7 +10,7 @@
 
 # Git #
 
-* Most widely used & most widely misunderstood VCS in existance
+* Most widely used & most widely misunderstood VCS in existence
 * Doesn't fit nicely with our existing compute paradigms
 
 ~~~SECTION:notes~~~
@@ -33,7 +33,7 @@ Also mention:
 # Git Hooks #
 
 * Run at the ***local git repository*** (i.e., on your laptop)
-* *Scripts* that ***run when a particular actions occurs*** on the repo 
+* *Scripts* that ***run when a particular action occurs*** on the repo 
 * Actions like ```'$ git commit'``` or ```'$ git push'```
 * examples in ```your_repo/.git/hooks```
 
@@ -91,7 +91,7 @@ end
 
 * ***Puppetfile***
 * ***Hieradata***
-* ...sometimes the ***hiera.yaml*** 
+* ...sometimes the ***Hiera.yaml*** 
 
 !SLIDE bullets incremental 
 

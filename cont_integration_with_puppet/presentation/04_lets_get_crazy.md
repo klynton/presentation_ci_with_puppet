@@ -16,7 +16,7 @@
 # I'd start with ***unit testing***
 
 * Generally speaking **unit testing** enables you to ***test how code behaves*** 
-* Literally, ***in the context of Puppet***, they are testing if ***resources declared in your manifests are in the compiled catalogue*** 
+* Literally, ***in the context of Puppet***, they are testing if ***resources declared in your manifests are in the compiled catalog*** 
 * ... and have valid parameters. 
 
 !SLIDE small
@@ -59,7 +59,7 @@
 # *What I did not cover* 
 * ***System Testing***
 * ***Acceptance Testing***
-* ***Leveraging r10k for hiera data*** 
+* ***Leveraging r10k for Hiera data*** 
 * ...*and leveraging CI tools to deploy said data*
 * ***Multi Master Code Deployment***
 
