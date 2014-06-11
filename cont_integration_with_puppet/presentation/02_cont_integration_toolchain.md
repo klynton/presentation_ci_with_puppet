@@ -4,7 +4,7 @@
 
 !SLIDE bullets incremental transition=fade
 
-## ...we start with some tools 
+## ...we start with some tools
 
 !SLIDE bullets incremental transition=fade
 
@@ -15,8 +15,8 @@
 
 ~~~SECTION:notes~~~
 
-ex subversion: 
-* just files and folders; commits are numbered sequentially. 
+ex subversion:
+* just files and folders; commits are numbered sequentially.
 * even branching and tagging is simple — it’s just like taking a backup of a folder.
 
 Also mention:
@@ -31,9 +31,9 @@ Also mention:
 !SLIDE bullets incremental transition=fade
 
 # Git Hooks #
-
+cd 
 * Run at the ***local git repository*** (i.e., on your laptop)
-* *Scripts* that ***run when a particular action occurs*** on the repo 
+* *Scripts* that ***run when a particular action occurs*** on the repo
 * Actions like ```'$ git commit'``` or ```'$ git push'```
 * examples in ```your_repo/.git/hooks```
 
@@ -43,7 +43,7 @@ Also mention:
 
 !SLIDE small bullets incremental
 
-## Webhooks ***allow external services to be notified when certain events happen*** on a repo. 
+## Webhooks ***allow external services to be notified when certain events happen*** on a repo.
 
 * When the specified events happen a ***POST request is sent to each of the URLs you provide***.
 
@@ -51,7 +51,7 @@ Also mention:
 
 !SLIDE small transition=fade
 
-## On the puppet master: 
+## On the puppet master:
 
 <pre class="sh_Ruby">
 class Server Sinatra::Base
@@ -71,13 +71,13 @@ end
 
 # r10k  
 
-* ***r10que?*** 
+* ***r10que?***
 
 !SLIDE bullets incremental transition=fade
 
-* ***maps git topic branches*** on a remote which contains a Puppetfile ***to local puppet environmenets*** 
+* ***maps git topic branches*** on a remote which contains a Puppetfile ***to local puppet environmenets***
 * ... and ***deploys all the modules in that Puppetfile*** to the ***specified Puppet environment*** via the topic branch
-* simple. 
+* simple.
 
 !SLIDE bullets incremental  transition=fade
 
@@ -87,20 +87,20 @@ end
 
 !SLIDE bullets incremental
 
-## this **monolithic repo** contains: 
+## this **monolithic repo** contains:
 
 * ***Puppetfile***
 * ***Hieradata***
-* ...sometimes the ***Hiera.yaml*** 
+* ...sometimes the ***Hiera.yaml***
 
-!SLIDE bullets incremental 
+!SLIDE bullets incremental
 
-## where do the files live on the Puppet master? 
+## where do the files live on the Puppet master?
 
 * For PE: **/etc/puppetlabs/puppet**
 * For FOSS: **/etc/puppet/**
 
-!SLIDE bullets incremental 
+!SLIDE bullets incremental
 
 <pre class="sh_Bash">
 $ pwd
@@ -118,10 +118,10 @@ $ git branch
 !SLIDE bullets incremental
 
 ## ***For each version of the Puppetfile*** on a given topic branch in the control repo:
-* There are **module references to** *git* or *forge* URIs with (optional) refs 
+* There are **module references to** *git* or *forge* URIs with (optional) refs
 
 
-!SLIDE commandline 
+!SLIDE commandline
 
 ## On Branch Development:
 
@@ -156,4 +156,3 @@ mod "my_module",
   :git => "git://github.com/my_module.git",
   :ref => '1.0.0'
 </pre>
-

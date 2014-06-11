@@ -6,7 +6,7 @@
 
 ## *A quick review*
 
-- We have a **Pupeptfile** in a **control repo** on **git**
+- We have a **Puppetfile** in a **control repo** on **git**
 - For **each topic branch** we have **different modules** declared in the **Puppetfile**
 - We have a **RESTful** webhook on the Puppet master, and our **git repo** is configured to **POST** on ***'git push'***  
 
@@ -14,7 +14,7 @@
 
 # deploy() #
 
-!SLIDE small 
+!SLIDE small
 ## First, the ***JSON sent in the POST*** to our Puppet master ***is parsed for the branch ref***:
 	@@@ Ruby
 	...
@@ -43,25 +43,25 @@
 !SLIDE
 
 # Wait, what?! #
- 
+
 !SLIDE
 
 # So... #
 
-!SLIDE small bullets incremental 
+!SLIDE small bullets incremental
 
-## On my dev machine, ***I added some modules to the Puppetfile for branch development*** 
-* **'git push'** 
+## On my dev machine, ***I added some modules to the Puppetfile for branch development***
+* **'git push'**
 * The ***git repo*** received the push and sent a ***POST*** to our Puppet master URI
 * On receiving the ***POST*** our webhook running on the Puppet master ***parsed the JSON sent with the POST*** and pulled down the branch with r10k.
 * *Automagically*
 
-!SLIDE bullets incremental 
- 
+!SLIDE bullets incremental
+
 ## This is a *somewhat* typical CI setup for Puppet code
 
 * But it's **missing some critical parts**
-* ***No QA*** checking of the code 
+* ***No QA*** checking of the code
 * You could ***easily push bad code to branch*** **'production'** and break your kingdom
 
 !SLIDE
@@ -73,7 +73,7 @@
 ## Run ```$ puppet parser validate``` on every **'git commit'**
 
 * It should ***only run on*** '.pp' files
-* It should ***cancel commit*** for exit code < 0 
+* It should ***cancel commit*** for exit code < 0
 
 !SLIDE small
 # ```$confdir/.git/hooks/pre-commit```
@@ -131,7 +131,7 @@
 		then
 			echo "ERROR: ruby template parser failed at: $file"
 			syntax_is_bad=1
-		else	
+		else
 			echo "OK: $file looks like a valid ruby template"
 		fi
 	fi
@@ -150,14 +150,13 @@
 		echo "Everything looks good."
 	fi
 
-!SLIDE	
+!SLIDE
 
 # So far, this has been ***"simple"*** #
 
-!SLIDE bullets incremental 
+!SLIDE bullets incremental
 
 # What we've seen:
 * **Git hook** ***checks code locally*** for *basic syntax*, *parsability* and *template structure*
 * **Git push** sparks off **webhook** to ***run r10k***
 * **r10k** ***pulls down the pushed branch*** to the *Puppet master*
-

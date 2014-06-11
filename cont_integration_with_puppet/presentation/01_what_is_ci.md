@@ -1,9 +1,9 @@
-!SLIDE 
+!SLIDE
 ## Continuous Integration with Puppet  
 
 !SLIDE transition=fade
 
-![this](cont_integration_dare.jpg) 
+![this](cont_integration_dare.jpg)
 
 (let's go over some terminology first)
 
@@ -11,19 +11,19 @@
 
 ## Continuous Integration
 
-***streamlined promotion*** of code through *dev - test - production* 
+***streamlined promotion*** of code through *dev - test - production*
 
 !SLIDE transition=fade
 
 ## Continuous Delivery
 
-CI ***with a human controlled*** realase gate to production.
+CI ***with a human controlled*** release gate to production.
 
 !SLIDE transition=fade
 
 ## Continuous Deployment
 
-CI ***with automated*** release gate to production
+CI ***with an automated*** release gate to production
 
 !SLIDE transition=fade
 
@@ -32,16 +32,16 @@ CI ***with automated*** release gate to production
 
 !SLIDE bullets incremental transition=fade
 
-# The Goal: 
+# The Goal:
 * Automate things so it's **like a factory**.
 * Then use **factory patterns** to ***solve your problems***.
 
 !SLIDE transition=fade bullets incremental
 
-## **Factory Constraints** = **Code Deployment Constraints**: 
-* Deliver ***fast***, ***predictable***, and ***uninterrupted*** code pipelines 
-* which ***minimize the time to production*** 
-* by ***eliminating bottlenecks*** from the (agile) workflow. 
+## **Factory Constraints** == **Code Deployment Constraints**:
+* Deliver ***fast***, ***predictable***, and ***uninterrupted*** code pipelines
+* which ***minimize the time to production***
+* by ***eliminating bottlenecks*** from the (agile) workflow.
 
 !SLIDE code transition=fade
 
@@ -49,11 +49,10 @@ CI ***with automated*** release gate to production
 class carFactory (
 	$chassis,
 	...
-)inherits carFactory::params{	
+)inherits carFactory::params{
 	include carFactory::robots
 	include carFactory::assemblyLine
 	include carFactory::qualityAssurance
 	...
 }
 </pre>
-
